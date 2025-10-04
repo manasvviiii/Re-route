@@ -1,6 +1,6 @@
 'use client';
 
-import { useFormState } from 'react-dom';
+import { useActionState } from 'react';
 import { getAptitudeAnalysis } from './actions';
 import { QuizForm } from './quiz-form';
 import { ResultsDisplay } from './results-display';
@@ -15,7 +15,7 @@ const initialState = {
 };
 
 export default function AptitudeTestPage() {
-  const [state, formAction] = useFormState(getAptitudeAnalysis, initialState);
+  const [state, formAction] = useActionState(getAptitudeAnalysis, initialState);
   const [quizStarted, setQuizStarted] = React.useState(false);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const formRef = React.useRef<HTMLFormElement>(null);
