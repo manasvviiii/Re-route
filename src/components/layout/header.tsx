@@ -51,7 +51,7 @@ export default function Header() {
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
           <Logo className="h-8 w-8 text-primary" />
-          <span className="font-headline">PivotPath</span>
+          <span className="font-headline">Re-route</span>
         </Link>
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
@@ -90,7 +90,7 @@ export default function Header() {
               <div className="p-6">
                 <Link href="/" className="flex items-center gap-2 font-bold text-xl mb-8">
                   <Logo className="h-8 w-8 text-primary" />
-                   <span className="font-headline">PivotPath</span>
+                   <span className="font-headline">Re-route</span>
                 </Link>
                 <nav className="flex flex-col gap-6">
                   {navLinks.map((link) => (

@@ -67,7 +67,7 @@ export default function Home() {
               </span>
             </h1>
             <p className="max-w-2xl mx-auto text-lg text-muted-foreground mb-8">
-              PivotPath is your dedicated guide to transforming your hard-earned
+              Re-route is your dedicated guide to transforming your hard-earned
               knowledge and resilience into a thriving career in technology and
               engineering.
             </p>

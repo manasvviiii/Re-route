@@ -10,10 +10,10 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
              <Link href="/" className="flex items-center gap-2 font-bold text-xl">
                 <Logo className="h-8 w-8 text-primary" />
-                 <span className="font-headline">PivotPath</span>
+                 <span className="font-headline">Re-route</span>
             </Link>
             <p className="text-muted-foreground max-w-xs">
-              Guiding you from NEET challenges to new opportunities in engineering and technology.
+              Guiding you to new opportunities in engineering and technology.
             </p>
           </div>
           <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8">
@@ -56,7 +56,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} PivotPath. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Re-route. All rights reserved.</p>
         </div>
       </div>
     </footer>

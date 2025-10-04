@@ -6,9 +6,9 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 
 export const metadata: Metadata = {
-  title: 'PivotPath',
+  title: 'Re-route',
   description:
-    'Guiding you from NEET challenges to new opportunities in engineering and technology.',
+    'Guiding you to new opportunities in engineering and technology.',
 };
 
 export default function RootLayout({

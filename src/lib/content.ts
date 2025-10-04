@@ -52,7 +52,7 @@ export const empowermentArticles = [
     {
     title: 'The Pivot: How Changing Your Dream Can Redefine Success',
     excerpt: 'Success isn\'t a straight line. This article explores the psychology of changing long-held goals and finding happiness in unexpected places.',
-    author: 'PivotPath Editorial',
+    author: 'Re-route Editorial',
     date: 'July 2, 2024',
     image: PlaceHolderImages.find((img) => img.id === 'article-6'),
     category: 'Motivation',
