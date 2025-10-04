@@ -1,3 +1,94 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Abstract geometric shapes or city skyline",
+      "imageUrl": "https://images.unsplash.com/photo-1519662978799-2f05096d3636?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3NTk1OTAwOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract architecture"
+    },
+    {
+      "id": "empowerment-card",
+      "description": "Card image for empowerment hub link",
+      "imageUrl": "https://images.unsplash.com/photo-1633604909948-4e4680f240a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxob3BlZnVsJTIwc3VucmlzZXxlbnwwfHx8fDE3NTk1MTkyNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hopeful sunrise"
+    },
+    {
+      "id": "domains-card",
+      "description": "Card image for domains hub link",
+      "imageUrl": "https://images.unsplash.com/photo-1721244653652-268631ec049a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxibHVlcHJpbnQlMjBzY2hlbWF0aWN8ZW58MHx8fHwxNzU5NTg2MDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "blueprint schematic"
+    },
+    {
+      "id": "aptitude-card",
+      "description": "Card image for aptitude test link",
+      "imageUrl": "https://images.unsplash.com/photo-1737505599159-5ffc1dcbc08f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxicmFpbiUyMG5ldHdvcmt8ZW58MHx8fHwxNzU5NTQ0MjMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "brain network"
+    },
+    {
+      "id": "article-1",
+      "description": "Placeholder for an article about a person coding",
+      "imageUrl": "https://images.unsplash.com/photo-1624377632657-3902bfd35958?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwZXJzb24lMjBjb2Rpbmd8ZW58MHx8fHwxNzU5NTk2MzgzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person coding"
+    },
+    {
+      "id": "article-2",
+      "description": "Placeholder for an article about success",
+      "imageUrl": "https://images.unsplash.com/photo-1603181647872-18585a0d2f28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3VjY2VzcyUyMG1vdW50YWlufGVufDB8fHx8MTc1OTU5ODc3M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "success mountain"
+    },
+    {
+      "id": "article-3",
+      "description": "Placeholder for an article about collaboration",
+      "imageUrl": "https://images.unsplash.com/photo-1492366254240-43affaefc3e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZWFtJTIwY29sbGFib3JhdGlvbnxlbnwwfHx8fDE3NTk1NTgwNjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "team collaboration"
+    },
+    {
+      "id": "article-4",
+      "description": "Placeholder for an article about learning",
+      "imageUrl": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsZWFybmluZyUyMG9ubGluZXxlbnwwfHx8fDE3NTk1OTg3NzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "learning online"
+    },
+    {
+      "id": "article-5",
+      "description": "Placeholder for an article about technology",
+      "imageUrl": "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmdXR1cmlzdGljJTIwdGVjaG5vbG9neXxlbnwwfHx8fDE3NTk1NTUwMjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "futuristic technology"
+    },
+    {
+      "id": "article-6",
+      "description": "Placeholder for an article about a career change",
+      "imageUrl": "https://images.unsplash.com/photo-1459180129673-eefb56f79b45?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjYXJlZXIlMjBjaGFuZ2V8ZW58MHx8fHwxNzU5NTk4NzczfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "career change"
+    },
+    {
+      "id": "domain-detail-hero",
+      "description": "Hero image for a domain detail page",
+      "imageUrl": "https://images.unsplash.com/photo-1705909773420-8d7af2a343f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjB3b3Jrc3BhY2V8ZW58MHx8fHwxNzU5NTc2MTY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern workspace"
+    },
+    {
+      "id": "resource-1",
+      "description": "Placeholder for a learning resource",
+      "imageUrl": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxvbmxpbmUlMjBjb3Vyc2V8ZW58MHx8fHwxNzU5NTg4MTIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "online course"
+    },
+    {
+      "id": "resource-2",
+      "description": "Placeholder for a learning resource",
+      "imageUrl": "https://images.unsplash.com/photo-1565229284535-2cbbe3049123?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb2RpbmclMjBib290Y2FtcHxlbnwwfHx8fDE3NTk1OTg3NzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "coding bootcamp"
+    },
+    {
+      "id": "resource-3",
+      "description": "Placeholder for a learning resource",
+      "imageUrl": "https://images.unsplash.com/photo-1618255630366-f402c45736f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx1bml2ZXJzaXR5JTIwY2FtcHVzfGVufDB8fHx8MTc1OTQ5OTc1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "university campus"
+    },
+    {
+      "id": "resource-4",
+      "description": "Placeholder for a learning resource",
+      "imageUrl": "https://images.unsplash.com/photo-1600320844678-43cebba1cdfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZWNoJTIwY29uZmVyZW5jZXxlbnwwfHx8fDE3NTk0OTk3MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech conference"
+    }
+  ]
 }
