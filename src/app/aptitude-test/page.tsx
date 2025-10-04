@@ -7,6 +7,7 @@ import { ResultsDisplay } from './results-display';
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
 import React from 'react';
+import { Card } from '@/components/ui/card';
 
 const initialState = {
   data: null,
@@ -36,7 +37,7 @@ export default function AptitudeTestPage() {
         <div className="flex flex-col items-center justify-center gap-4 text-center min-h-[400px]">
           <Loader2 className="h-16 w-16 animate-spin text-primary" />
           <h2 className="text-2xl font-bold font-headline">Analyzing your responses...</h2>
-          <p className="text-muted-foreground">Our AI is crafting your personalized report. This may take a moment.</p>
+          <p className="text-muted-foreground">Our system is crafting your personalized report. This may take a moment.</p>
         </div>
       );
     }
@@ -63,7 +64,7 @@ export default function AptitudeTestPage() {
       <div className="text-center">
         <h2 className="text-3xl font-bold font-headline mb-4">Discover Your Engineering Persona</h2>
         <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-          This short 5-question test will help you understand your strengths and match them with high-growth engineering domains. Answer honestly to get the most accurate results.
+          This short 10-question test will help you understand your strengths and match them with high-growth engineering domains. Answer honestly to get the most accurate results.
         </p>
         <Button size="lg" onClick={() => setQuizStarted(true)}>
           Start the Test

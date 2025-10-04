@@ -149,52 +149,18 @@ export const engineeringDomains = [
 
 
 export const aptitudeQuestions = [
-  {
-    question: "When faced with a complex problem, what is your first instinct?",
-    options: [
-      "Break it down into smaller, logical steps.",
-      "Look for patterns and hidden connections in the data.",
-      "Imagine a completely new way to approach it.",
-      "Understand the human or real-world impact of the problem."
-    ]
-  },
-  {
-    question: "Which of these subjects from your NEET prep did you enjoy the most, regardless of marks?",
-    options: [
-      "Physics - understanding the fundamental laws and solving equations.",
-      "Chemistry - seeing how different elements interact and form systems.",
-      "Biology - memorizing complex systems and their functions.",
-      "I enjoyed the process of rigorous, structured study itself."
-    ]
-  },
-  {
-    question: "You have a free weekend to learn something new. What do you pick?",
-    options: [
-      "Building a simple website or a small app.",
-      "Reading about the latest breakthroughs in science and technology.",
-      "Working on a hands-on project, like assembling a gadget or a model.",
-      "Analyzing a social or economic trend using public data."
-    ]
-  },
-  {
-    question: "How do you prefer to work?",
-    options: [
-      "Alone, with deep focus on a single, challenging task.",
-      "In a team, brainstorming and collaborating on ideas.",
-      "A mix of both - individual work combined with team check-ins.",
-      "Leading a project and organizing the tasks for others."
-    ]
-  },
-  {
-    question: "What kind of impact do you want to make with your career?",
-    options: [
-      "Create tangible products that people use every day.",
-      "Solve large-scale, abstract problems that push humanity forward.",
-      "Improve existing systems to make them more efficient and reliable.",
-      "Directly help people by applying technology to health or social issues."
-    ]
-  }
+  { "q": "I enjoy thinking about algorithms, logical sequences, and writing structured instructions.", "type": "Aptitude", "options": ["Not at all", "Slightly", "Moderately", "Highly", "Very Highly"] },
+  { "q": "I am fascinated by how things move (e.g., engines, vehicles) and like understanding physical mechanics.", "type": "Interest", "options": ["Not at all", "Slightly", "Moderately", "Highly", "Very Highly"] },
+  { "q": "I am interested in large-scale infrastructure, urban development, and structural stability (e.g., bridges, buildings).", "type": "Interest", "options": ["Not at all", "Slightly", "Moderately", "Highly", "Very Highly"] },
+  { "q": "I find electronic gadgets, circuits, communication systems (e.g., Wi-Fi, sensors) captivating.", "type": "Aptitude", "options": ["Not at all", "Slightly", "Moderately", "Highly", "Very Highly"] },
+  { "q": "I have a strong aptitude for Chemistry and enjoy studying material transformation and processes.", "type": "Aptitude", "options": ["Not at all", "Slightly", "Moderately", "Highly", "Very Highly"] },
+  { "q": "My hobbies involve breaking down complex problems into smaller, manageable steps (e.g., coding, complex gaming).", "type": "Hobby", "options": ["Not at all", "Slightly", "Moderately", "Highly", "Very Highly"] },
+  { "q": "I enjoy building, fixing, or tinkering with physical objects and tools in my free time.", "type": "Hobby", "options": ["Not at all", "Slightly", "Moderately", "Highly", "Very Highly"] },
+  { "q": "I am keenly aware of environmental issues and interested in sustainable or green technology.", "type": "Interest", "options": ["Not at all", "Slightly", "Moderately", "Highly", "Very Highly"] },
+  { "q": "I enjoy working with data, statistics, and trends to make informed decisions.", "type": "Aptitude", "options": ["Not at all", "Slightly", "Moderately", "Highly", "Very Highly"] },
+  { "q": "I am comfortable working in a laboratory setting or managing complex manufacturing processes.", "type": "Hobby", "options": ["Not at all", "Slightly", "Moderately", "Highly", "Very Highly"] }
 ];
+
 
 export const resources = [
   {
@@ -269,3 +235,25 @@ export const forumTopics = [
         category: 'Admissions'
     }
 ]
+
+export const domainMatrix: Record<string, number[]> = {
+    'Computer Science (CSE)':           [5, 1, 1, 3, 1, 5, 1, 2, 5, 1],
+    'Mechanical Engineering (ME)':      [3, 5, 3, 2, 2, 3, 5, 3, 3, 4],
+    'Civil Engineering (CE)':           [2, 4, 5, 1, 2, 2, 5, 5, 2, 3],
+    'Electrical/Electronics (ECE/EE)':  [4, 2, 1, 5, 1, 4, 3, 2, 4, 2],
+    'Chemical Engineering (ChE)':       [3, 1, 3, 1, 5, 2, 1, 5, 4, 5],
+    'Aerospace Engineering (AE)':       [4, 5, 2, 3, 2, 4, 4, 3, 3, 3],
+    'Industrial Engineering (IE)':      [4, 3, 4, 2, 2, 4, 3, 5, 5, 4],
+    'Petroleum Engineering (PE)':       [3, 3, 4, 2, 4, 2, 3, 4, 4, 5],
+};
+
+export const domainDescriptions: Record<string, string> = {
+    'Computer Science (CSE)': "Focuses on software, data structures, algorithms, AI, and cybersecurity. Path: Software Developer, Data Scientist, Systems Analyst.",
+    'Mechanical Engineering (ME)': "Deals with the design, analysis, manufacturing, and maintenance of mechanical systems. Path: Automotive Engineer, Robotics Specialist, Thermal Engineer.",
+    'Civil Engineering (CE)': "Involves the design and construction of public and private works, such as infrastructure, bridges, and environmental structures. Path: Structural Engineer, Urban Planner, Construction Manager.",
+    'Electrical/Electronics (ECE/EE)': "Covers power generation, electrical devices, circuitry, and communication systems like sensors and VLSI design. Path: Circuit Designer, Power Systems Engineer, Telecommunications Expert.",
+    'Chemical Engineering (ChE)': "Applies principles of chemistry, physics, and life sciences to design and operate industrial chemical processes. Path: Process Engineer, Materials Scientist, Pharmaceutical Engineer.",
+    'Aerospace Engineering (AE)': "Involves the design, manufacture, and testing of aircraft, spacecraft, missiles, and related equipment. Path: Aircraft Designer, Propulsion Specialist, Space Systems Engineer.",
+    'Industrial Engineering (IE)': "Optimizes complex processes, systems, and organizations by eliminating waste of time, money, and materials. Path: Operations Manager, Supply Chain Analyst, Quality Engineer.",
+    'Petroleum Engineering (PE)': "Focuses on the extraction and production of oil and gas resources from the Earth. Path: Drilling Engineer, Reservoir Engineer, Production Manager.",
+};

@@ -7,6 +7,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Progress } from '@/components/ui/progress';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 type QuizFormProps = {
   formAction: (formData: FormData) => void;
@@ -43,18 +44,22 @@ export function QuizForm({ formAction, formRef }: QuizFormProps) {
   };
   
   const progressValue = ((currentQuestion + 1) / aptitudeQuestions.length) * 100;
+  const currentQData = aptitudeQuestions[currentQuestion];
 
   return (
     <form action={formAction} ref={formRef}>
       <CardHeader className="text-center">
-        <CardTitle className="font-headline text-2xl">Question {currentQuestion + 1} of {aptitudeQuestions.length}</CardTitle>
+         <div className="flex justify-center">
+          <Badge variant="outline">{currentQData.type}</Badge>
+        </div>
+        <CardTitle className="font-headline text-2xl pt-2">Question {currentQuestion + 1} of {aptitudeQuestions.length}</CardTitle>
         <div className="pt-4">
           <Progress value={progressValue} className="w-full" />
         </div>
       </CardHeader>
       <CardContent>
         <p className="text-center text-lg font-medium mb-8 min-h-[56px]">
-          {aptitudeQuestions[currentQuestion].question}
+          {currentQData.q}
         </p>
 
         <RadioGroup
@@ -63,7 +68,7 @@ export function QuizForm({ formAction, formRef }: QuizFormProps) {
           value={answers[currentQuestion]}
           className="space-y-4"
         >
-          {aptitudeQuestions[currentQuestion].options.map((option, index) => (
+          {currentQData.options.map((option, index) => (
             <Label
               key={index}
               htmlFor={`option-${index}`}
