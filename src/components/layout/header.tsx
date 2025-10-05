@@ -73,7 +73,7 @@ export default function Header() {
             className="group rounded-full bg-gradient-to-r from-[#FFB347] to-[#FFDA63] text-accent-foreground font-semibold hover:shadow-lg transition-shadow"
           >
             <Link href="/aptitude-test">
-              Start Your Pivot
+              start your journey
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
@@ -104,7 +104,7 @@ export default function Header() {
                     className="group w-full mt-8 rounded-full bg-gradient-to-r from-[#FFB347] to-[#FFDA63] text-accent-foreground font-semibold hover:shadow-lg transition-shadow"
                   >
                     <Link href="/aptitude-test">
-                      Start Your Pivot
+                      start your journey
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </Button>

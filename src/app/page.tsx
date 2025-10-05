@@ -73,7 +73,7 @@ export default function Home() {
             </p>
             <Button asChild size="lg" className="group">
               <Link href="/aptitude-test">
-                Start Your Pivot
+                start your journey
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
