@@ -8,6 +8,8 @@ import {
   Code,
   FlaskConical,
   IconProps,
+  Landmark,
+  Rocket
 } from 'lucide-react';
 
 type DomainIconProps = {
@@ -21,6 +23,8 @@ const iconMap: { [key: string]: React.FC<IconProps> } = {
   Mechanical: Cog,
   Software: Code,
   Biotech: FlaskConical,
+  Civil: Landmark,
+  Aeronautical: Rocket,
 };
 
 export const DomainIcon = ({ name, ...props }: DomainIconProps) => {
