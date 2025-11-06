@@ -78,7 +78,7 @@ export const empowermentArticles = [
     excerpt: 'A failure in her Class 12 Chemistry exam redirected Kangana Ranaut from a medical career to becoming one of Bollywood\'s leading actresses.',
     author: 'Entertainment Weekly',
     date: 'July 14, 2024',
-    image: PlaceHolderImages.find((img) => img.id === 'article-1'),
+    image: PlaceHolderImages.find((img) => img.id === 'article-kangana'),
     category: 'Celebrity Story',
     fullContent: `
 <p>Before she was the "Queen" of Bollywood, Kangana Ranaut was a science student from a small town in Himachal Pradesh with a dream of becoming a doctor. Her family had high hopes for her to pursue a medical career, and she was diligently preparing for the All India Pre-Medical Test (AIPMT), the exam that preceded NEET.</p>
@@ -246,7 +246,7 @@ export const aptitudeQuestions = [
     {"q": "I prefer working with *code, digital hardware schematics, and simulation tools* rather than heavy physical machinery.", "type": "Digital Focus", "options": ["1", "2", "3", "4", "5", "6", "7"]},
     {"q": "I am comfortable managing projects on a *construction site, in a manufacturing plant, or in resource extraction* (Fieldwork/HSE).", "type": "Fieldwork/Process", "options": ["1", "2", "3", "4", "5", "6", "7"]},
     {"q": "I am drawn to solving problems related to *environmental sustainability, water treatment, or waste recycling*.", "type": "Environmental/Social", "options": ["1", "2", "3", "4", "5", "6", "7"]},
-    {"q": "I find more satisfaction in *improving existing systems* (efficiency, speed, cost) than in creating entirely new products.", "type": "Continuous Improvement", "options": ["1", "2", "3", "4", "5", "6", "7"]},
+    {"q": "I find more satisfaction in *improving existing systems* (efficiency, speed, cost) than in creating entirely new products.", "type": "Continuous Improvement", "options": ["1" , "2", "3", "4", "5", "6", "7"]},
     {"q": "I value working on small, *highly complex, custom electromechanical devices* with tight tolerances (e.g., surgical tools, robotics).", "type": "High Precision", "options": ["1", "2", "3", "4", "5", "6", "7"]},
 
     // *Deep Aptitude Probes*
@@ -355,6 +355,7 @@ export const domainDescriptions: Record<string, string> = {
     'Industrial Engineering (IE)':     "Focus: Optimizing complex processes, logistics, supply chains, and management. It's the engineering of 'efficiency'. *Core Skills: Optimization, Data, Management, Continuous Improvement.* Path: Operations Manager, Supply Chain Analyst, Quality Engineer.",
     'Biomedical Engineering (BME)':    "Focus: Applying engineering principles to biological systems and medicine (e.g., medical devices, bio-instrumentation). *Core Skills: Chemistry, Electronics, Societal Impact, High Precision.* Path: Medical Device Engineer, Clinical Engineer, Biomechanics Specialist.",
 };
+
 
 
 
