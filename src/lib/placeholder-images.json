@@ -45,8 +45,8 @@
     {
       "id": "article-kangana",
       "description": "Portrait of a confident woman for an article",
-      "imageUrl": "https://images.unsplash.com/photo-1610217594963-3e336d3969c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBhY3RyZXNzfGVufDB8fHx8MTc1OTY5MTgzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "indian actress"
+      "imageUrl": "https://source.unsplash.com/featured/?confident-indian-woman,portrait",
+      "imageHint": "confident woman"
     },
     {
       "id": "domain-detail-hero",
@@ -57,7 +57,7 @@
     {
       "id": "resource-1",
       "description": "Placeholder for a learning resource",
-      "imageUrl": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxvbmxpbmUlMjBjb3Vyc2V8ZW58MHx8fHwxNzU5NTg4MTIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxvbmxpbmUlMjBjb3Vyc2V8ZW58MHx8fHwxNzU5NTg4MTIyfDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "online course"
     },
     {
@@ -75,7 +75,7 @@
     {
       "id": "resource-4",
       "description": "Placeholder for a learning resource",
-      "imageUrl": "https://images.unsplash.com/photo-1600320844678-43cebba1cdfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZWNoJTIwY29uZmVyZW5jZXxlbnwwfHx8fDE3NTk0OTk3MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1600320844678-43cebba1cdfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZWNoJTIwY29uZmVyZW5jZXxlbnwwfHx8fDE3NTk0OTk3MTB8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "tech conference"
     }
   ]
