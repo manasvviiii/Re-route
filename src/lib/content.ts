@@ -96,7 +96,7 @@ export const empowermentArticles = [
     excerpt: 'The beloved actor once failed the Pre-Medical Test (PMT), the precursor to NEET, but went on to become a successful actor.',
     author: 'Bollywood Insider',
     date: 'July 11, 2024',
-    image: PlaceHolderImages.find((img) => img.id === 'article-2'),
+    image: PlaceHolderImages.find((img) => img.id === 'article-ayushmann'),
     category: 'Celebrity Story',
     fullContent: `
 <p>Ayushmann Khurrana is celebrated today as one of Bollywood's most versatile and talented actors, known for his unconventional choice of roles and his relatable charm. But before he graced the silver screen, he was a science student from Chandigarh with ambitions of becoming a doctor.</p>
@@ -246,7 +246,7 @@ export const aptitudeQuestions = [
     {"q": "I prefer working with *code, digital hardware schematics, and simulation tools* rather than heavy physical machinery.", "type": "Digital Focus", "options": ["1", "2", "3", "4", "5", "6", "7"]},
     {"q": "I am comfortable managing projects on a *construction site, in a manufacturing plant, or in resource extraction* (Fieldwork/HSE).", "type": "Fieldwork/Process", "options": ["1", "2", "3", "4", "5", "6", "7"]},
     {"q": "I am drawn to solving problems related to *environmental sustainability, water treatment, or waste recycling*.", "type": "Environmental/Social", "options": ["1", "2", "3", "4", "5", "6", "7"]},
-    {"q": "I find more satisfaction in *improving existing systems* (efficiency, speed, cost) than in creating entirely new products.", "type": "Continuous Improvement", "options": ["1" , "2", "3", "4", "5", "6", "7"]},
+    {"q": "I find more satisfaction in *improving existing systems* (efficiency, speed, cost) than in creating entirely new products.", "type": "Continuous Improvement", "options": ["1" , "2" , "3", "4", "5", "6", "7"]},
     {"q": "I value working on small, *highly complex, custom electromechanical devices* with tight tolerances (e.g., surgical tools, robotics).", "type": "High Precision", "options": ["1", "2", "3", "4", "5", "6", "7"]},
 
     // *Deep Aptitude Probes*
@@ -355,6 +355,8 @@ export const domainDescriptions: Record<string, string> = {
     'Industrial Engineering (IE)':     "Focus: Optimizing complex processes, logistics, supply chains, and management. It's the engineering of 'efficiency'. *Core Skills: Optimization, Data, Management, Continuous Improvement.* Path: Operations Manager, Supply Chain Analyst, Quality Engineer.",
     'Biomedical Engineering (BME)':    "Focus: Applying engineering principles to biological systems and medicine (e.g., medical devices, bio-instrumentation). *Core Skills: Chemistry, Electronics, Societal Impact, High Precision.* Path: Medical Device Engineer, Clinical Engineer, Biomechanics Specialist.",
 };
+
+
 
 
 

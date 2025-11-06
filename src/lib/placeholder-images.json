@@ -49,6 +49,12 @@
       "imageHint": "elegant woman"
     },
     {
+      "id": "article-ayushmann",
+      "description": "Portrait of a smiling Indian man",
+      "imageUrl": "https://images.unsplash.com/photo-1610217594963-3e336d3969c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBhY3RyZXNzfGVufDB8fHx8MTc1OTY5MTgzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
+    },
+    {
       "id": "article-4",
       "description": "Placeholder for an article about learning",
       "imageUrl": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsZWFybmluZyUyMG9ubGluZXxlbnwwfHx8fDE3NTk1OTg3NzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
