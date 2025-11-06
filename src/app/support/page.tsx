@@ -5,14 +5,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User } from 'lucide-react';
 
 export default function SupportPage() {
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      text: "Hello! I'm your Re-route support assistant. How can I help you today? You can ask about engineering domains, the aptitude test, or how to navigate the site.",
-      sender: 'bot',
-      timestamp: new Date()
-    }
-  ]);
+  const [messages, setMessages] = useState<Array<{id: number, text: string, sender: string, timestamp: Date}>>([]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
@@ -20,6 +13,18 @@ export default function SupportPage() {
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    // Set initial message only on the client to avoid hydration mismatch
+    setMessages([
+      {
+        id: 1,
+        text: "Hello! I'm your Re-route support assistant. How can I help you today? You can ask about engineering domains, the aptitude test, or how to navigate the site.",
+        sender: 'bot',
+        timestamp: new Date()
+      }
+    ]);
+  }, []);
 
   useEffect(() => {
     scrollToBottom();
