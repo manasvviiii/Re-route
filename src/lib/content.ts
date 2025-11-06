@@ -1,5 +1,6 @@
 
 
+
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 
@@ -8,6 +9,7 @@ export const navLinks = [
   { href: '/domains', label: 'Domains' },
   { href: '/resources', label: 'Resources' },
   { href: '/community', label: 'Community' },
+  { href: '/support', label: 'Support' },
 ];
 
 export const empowermentArticles = [
@@ -20,17 +22,17 @@ export const empowermentArticles = [
     image: PlaceHolderImages.find((img) => img.id === 'article-1'),
     category: 'Success Story',
     fullContent: `
-<p>The pressure to crack the National Eligibility cum Entrance Test (NEET) is immense for millions of Indian students who dream of becoming doctors. For Rithuparna KS, the journey was no different. After completing her Class 12, she dedicated herself to preparing for NEET, but despite her best efforts, she couldn't secure a medical seat. It was a moment of deep disappointment, a crossroads that many aspirants face.</p>
+<p>The pressure to crack the National Eligibility cum Entrance Test (NEET) is immense for millions of Indian students who dream of becoming doctors. For Rithuparna KS, the journey was no different. After completing her Class 12, she dedicated herself to preparing for NEET, but despite her best efforts, she couldn\'t secure a medical seat. It was a moment of deep disappointment, a crossroads that many aspirants face.</p>
 <p>However, Rithuparna decided that this setback would not define her future. Instead of getting caught in a cycle of repeated attempts, she chose to pivot. Recognizing her strong foundation in science, she explored alternative career paths that valued her analytical and problem-solving skills. This led her to the world of engineering—a field with vast opportunities for innovation and growth.</p>
 <h3 class="text-2xl font-bold font-headline mt-6 mb-4">A New Beginning in Engineering</h3>
 <p>Rithuparna enrolled in an engineering program, channeling the same discipline and dedication she had for her medical preparation into her new studies. She discovered a passion for technology and complex systems, realizing that the logical reasoning and scientific principles she had mastered were highly transferable.</p>
 <p>Her hard work paid off spectacularly. Upon graduation, she secured a coveted and high-paying position in the technical division of Rolls-Royce, a global leader in aerospace and engineering. Her role involves working on cutting-edge technology that powers modern aircraft, a testament to the incredible heights one can reach with an engineering degree.</p>
 <h3 class="text-2xl font-bold font-headline mt-6 mb-4">Lessons from the Journey</h3>
-<p>Rithuparna's story is a powerful reminder that there are multiple paths to a successful and fulfilling career. Key takeaways from her journey include:</p>
+<p>Rithuparna\'s story is a powerful reminder that there are multiple paths to a successful and fulfilling career. Key takeaways from her journey include:</p>
 <ul class="list-disc list-inside space-y-2 mt-4">
-  <li><strong>Resilience is Key:</strong> A failed exam is not a reflection of your potential. It's an opportunity to re-evaluate and find a new direction where you can thrive.</li>
+  <li><strong>Resilience is Key:</strong> A failed exam is not a reflection of your potential. It\'s an opportunity to re-evaluate and find a new direction where you can thrive.</li>
   <li><strong>Skills are Transferable:</strong> The discipline, scientific knowledge, and analytical skills gained during NEET preparation are invaluable assets in fields like engineering, data science, and biotechnology.</li>
-  <li><strong>Explore Alternatives:</strong> Don't limit your vision to a single goal. The world of technology and engineering is booming with opportunities that are both intellectually stimulating and financially rewarding.</li>
+  <li><strong>Explore Alternatives:</strong> Don\'t limit your vision to a single goal. The world of technology and engineering is booming with opportunities that are both intellectually stimulating and financially rewarding.</li>
 </ul>
 <p class="mt-4">Today, Rithuparna KS stands as a beacon of hope for students who feel disheartened by exam results. Her journey from a NEET setback to a thriving career at Rolls-Royce proves that with courage and an open mind, you can re-route your path to incredible success.</p>
 `
@@ -45,13 +47,13 @@ export const empowermentArticles = [
     category: 'Career Pivot',
     fullContent: `
 <p>For many, failing to clear NEET after multiple attempts can feel like the end of the road. Sanjay faced this reality after his third attempt. The dream of a medical career seemed to slip further away with each try, leaving him at a critical juncture. Instead of giving up, he decided to channel his analytical mindset into one of the most exciting fields of the 21st century: Data Science.</p>
-<p>Sanjay discovered the groundbreaking Bachelor of Science (BS) Degree in Data Science and Applications offered by the prestigious Indian Institute of Technology (IIT) Madras. This unique program, with its flexible entry and exit points, was the perfect opportunity for him to pivot. It didn't matter that he was a "dropper"; what mattered was his aptitude for logic and numbers.</p>
+<p>Sanjay discovered the groundbreaking Bachelor of Science (BS) Degree in Data Science and Applications offered by the prestigious Indian Institute of Technology (IIT) Madras. This unique program, with its flexible entry and exit points, was the perfect opportunity for him to pivot. It didn\'t matter that he was a "dropper"; what mattered was his aptitude for logic and numbers.</p>
 <h3 class="text-2xl font-bold font-headline mt-6 mb-4">Embracing a New Domain</h3>
 <p>Enrolling in the IIT Madras program, Sanjay immersed himself in the world of data. He learned programming, statistics, and machine learning, discovering that the same analytical rigor required for biology and chemistry was directly applicable to finding patterns in large datasets. His science background gave him a unique edge in understanding complex problems from first principles.</p>
-<p>The program's industry-oriented curriculum prepared him for real-world challenges. He excelled in his studies, building a strong portfolio of projects. His persistence and newfound passion did not go unnoticed.</p>
+<p>The program\'s industry-oriented curriculum prepared him for real-world challenges. He excelled in his studies, building a strong portfolio of projects. His persistence and newfound passion did not go unnoticed.</p>
 <h3 class="text-2xl font-bold font-headline mt-6 mb-4">A Thriving Career in Tech</h3>
 <p>Upon completing his degree, Sanjay secured a position as an Associate Data Scientist at Syngenta, a global leader in agricultural technology. Today, he uses his skills to analyze data that helps improve crop yields and promote sustainable farming—a role that has a massive real-world impact, much like the medical field he once aspired to join.</p>
-<p class="mt-4">Sanjay's story is a powerful illustration of how to turn perceived failure into a launchpad for success in a high-demand tech field. It shows that your journey doesn’t have to follow a traditional script to be successful.</p>
+<p class="mt-4">Sanjay\'s story is a powerful illustration of how to turn perceived failure into a launchpad for success in a high-demand tech field. It shows that your journey doesn’t have to follow a traditional script to be successful.</p>
 `
   },
   {
@@ -63,13 +65,13 @@ export const empowermentArticles = [
     image: PlaceHolderImages.find((img) => img.id === 'article-3'),
     category: 'Inspiration',
     fullContent: `
-<p>Anshika Jais, like many others, invested two years of her life in the rigorous preparation for NEET. When she didn't secure a medical seat, she faced a choice: attempt another drop year or forge a new path. She chose the latter, a decision that led her to a fulfilling and successful career outside of medicine.</p>
-<p>Anshika enrolled in a Bachelor of Science (B.Sc.) in Life Sciences at Miranda House, one of Delhi University's most esteemed colleges. Instead of viewing it as a compromise, she embraced it as an opportunity. She focused on her studies, built a strong academic foundation, and actively participated in extracurricular activities to develop a well-rounded skill set.</p>
+<p>Anshika Jais, like many others, invested two years of her life in the rigorous preparation for NEET. When she didn\'t secure a medical seat, she faced a choice: attempt another drop year or forge a new path. She chose the latter, a decision that led her to a fulfilling and successful career outside of medicine.</p>
+<p>Anshika enrolled in a Bachelor of Science (B.Sc.) in Life Sciences at Miranda House, one of Delhi University\'s most esteemed colleges. Instead of viewing it as a compromise, she embraced it as an opportunity. She focused on her studies, built a strong academic foundation, and actively participated in extracurricular activities to develop a well-rounded skill set.</p>
 <h3 class="text-2xl font-bold font-headline mt-6 mb-4">From Science to Corporate Strategy</h3>
 <p>During her time at Miranda House, Anshika realized that her scientific training—critical thinking, research, and analytical skills—was highly valued in the corporate world. She began exploring careers that combined her interest in science with business and strategy. She prepared for campus placements, honing her communication and problem-solving abilities.</p>
 <p>Her efforts were successful, and she secured a coveted role in a leading corporation. In her job, she applies her analytical mind to solve business challenges, proving that a background in science is a powerful asset in any industry. Today, Anshika is not only thriving professionally but has also become a content creator and motivator. She shares her story on social media, reaching thousands of students who are feeling lost after NEET. Her message is one of hope and empowerment: there is a world of opportunity beyond a single exam.</p>
 <h3 class="text-2xl font-bold font-headline mt-6 mb-4">Your Degree is a Stepping Stone</h3>
-<p>Anshika's journey demonstrates that a B.Sc. degree from a good university is not a "backup plan" but a strong launchpad. It opens doors to diverse fields, including research, management, data analytics, and civil services. Her story encourages students to look at their education holistically and leverage their strengths to build a unique and successful career.</p>
+<p>Anshika\'s journey demonstrates that a B.Sc. degree from a good university is not a "backup plan" but a strong launchpad. It opens doors to diverse fields, including research, management, data analytics, and civil services. Her story encourages students to look at their education holistically and leverage their strengths to build a unique and successful career.</p>
 `
   },
     {
@@ -84,10 +86,10 @@ export const empowermentArticles = [
 <p>Before she was the "Queen" of Bollywood, Kangana Ranaut was a science student from a small town in Himachal Pradesh with a dream of becoming a doctor. Her family had high hopes for her to pursue a medical career, and she was diligently preparing for the All India Pre-Medical Test (AIPMT), the exam that preceded NEET.</p>
 <p>However, fate had other plans. Kangana has openly spoken about a pivotal moment in her life: failing her Class 12 Chemistry exam. For a student on the medical track, this was a significant setback. It forced her to confront the reality that her heart might not be in science and that her true calling lay elsewhere. Instead of succumbing to the pressure, she saw it as a sign to change course.</p>
 <h3 class="text-2xl font-bold font-headline mt-6 mb-4">A Bold Pivot to the Arts</h3>
-<p>At just 16, she made the bold decision to move to Delhi, against her family's wishes, to pursue her passion for the creative arts. She joined a theatre group and honed her acting skills, eventually moving to Mumbai to chase her Bollywood dream. The journey was arduous, filled with struggle and rejection, but her resilience and determination shone through.</p>
-<p>Her breakthrough came with the film "Gangster," and she has since gone on to become one of India's most acclaimed and highest-paid actresses, winning multiple National Film Awards. Her career is a testament to her talent, tenacity, and the courage to follow an unconventional path.</p>
+<p>At just 16, she made the bold decision to move to Delhi, against her family\'s wishes, to pursue her passion for the creative arts. She joined a theatre group and honed her acting skills, eventually moving to Mumbai to chase her Bollywood dream. The journey was arduous, filled with struggle and rejection, but her resilience and determination shone through.</p>
+<p>Her breakthrough came with the film "Gangster," and she has since gone on to become one of India\'s most acclaimed and highest-paid actresses, winning multiple National Film Awards. Her career is a testament to her talent, tenacity, and the courage to follow an unconventional path.</p>
 <h3 class="text-2xl font-bold font-headline mt-6 mb-4">The Unexpected Path to Success</h3>
-<p>Kangana's story is a powerful example of how a moment of academic "failure" can be the catalyst for discovering one's true passion. It teaches us that success isn't defined by a single exam or a predetermined career path. Sometimes, the most rewarding journeys are the ones we never planned. Her life is an inspiration for anyone who feels that an exam result has closed a door—often, it's just redirecting you to a gate of even greater opportunity.</p>
+<p>Kangana\'s story is a powerful example of how a moment of academic "failure" can be the catalyst for discovering one\'s true passion. It teaches us that success isn\'t defined by a single exam or a predetermined career path. Sometimes, the most rewarding journeys are the ones we never planned. Her life is an inspiration for anyone who feels that an exam result has closed a door—often, it\'s just redirecting you to a gate of even greater opportunity.</p>
 `
   },
     {
@@ -99,13 +101,13 @@ export const empowermentArticles = [
     image: PlaceHolderImages.find((img) => img.id === 'article-ayushmann'),
     category: 'Celebrity Story',
     fullContent: `
-<p>Ayushmann Khurrana is celebrated today as one of Bollywood's most versatile and talented actors, known for his unconventional choice of roles and his relatable charm. But before he graced the silver screen, he was a science student from Chandigarh with ambitions of becoming a doctor.</p>
-<p>In his youth, Ayushmann appeared for the Pre-Medical Test (PMT), the competitive entrance exam for medical colleges at the time. Like millions of others, he found the exam incredibly challenging and was unable to clear it. For a bright student, this could have been a moment of crisis. However, Ayushmann didn't let this setback deter him from pursuing other passions.</p>
+<p>Ayushmann Khurrana is celebrated today as one of Bollywood\'s most versatile and talented actors, known for his unconventional choice of roles and his relatable charm. But before he graced the silver screen, he was a science student from Chandigarh with ambitions of becoming a doctor.</p>
+<p>In his youth, Ayushmann appeared for the Pre-Medical Test (PMT), the competitive entrance exam for medical colleges at the time. Like millions of others, he found the exam incredibly challenging and was unable to clear it. For a bright student, this could have been a moment of crisis. However, Ayushmann didn\'t let this setback deter him from pursuing other passions.</p>
 <h3 class="text-2xl font-bold font-headline mt-6 mb-4">Discovering a Different Stage</h3>
-<p>He continued his education, earning a Master's degree in Mass Communication, and began to explore his creative talents. He became a popular radio jockey and VJ, winning hearts with his wit and voice. His big break came with the reality show "MTV Roadies," which he won, catapulting him into the limelight. This success paved the way for his acting debut in the critically and commercially successful film "Vicky Donor."</p>
+<p>He continued his education, earning a Master\'s degree in Mass Communication, and began to explore his creative talents. He became a popular radio jockey and VJ, winning hearts with his wit and voice. His big break came with the reality show "MTV Roadies," which he won, catapulting him into the limelight. This success paved the way for his acting debut in the critically and commercially successful film "Vicky Donor."</p>
 <p>Since then, there has been no looking back. Ayushmann has built a remarkable career by choosing unique, content-driven films that resonate with audiences. He is not just an actor but also a talented singer and a National Film Award winner, one of the highest honors in Indian cinema.</p>
 <h3 class="text-2xl font-bold font-headline mt-6 mb-4">A Lesson in Versatility</h3>
-<p>Ayushmann's journey is a powerful lesson in embracing one's multifaceted talents. His failure in the PMT did not define him; instead, it liberated him to explore his creative potential. His story teaches us that academic scores are not the sole measure of intelligence or future success. Sometimes, our true calling lies in the talents we cultivate outside the classroom. His transition from a medical aspirant to a celebrated artist is a source of immense inspiration for students to look beyond conventional careers and follow their hearts.</p>
+<p>Ayushmann\'s journey is a powerful lesson in embracing one\'s multifaceted talents. His failure in the PMT did not define him; instead, it liberated him to explore his creative potential. His story teaches us that academic scores are not the sole measure of intelligence or future success. Sometimes, our true calling lies in the talents we cultivate outside the classroom. His transition from a medical aspirant to a celebrated artist is a source of immense inspiration for students to look beyond conventional careers and follow their hearts.</p>
 `
   },
 ];
