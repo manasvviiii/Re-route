@@ -246,7 +246,7 @@ export const aptitudeQuestions = [
     {"q": "I prefer working with *code, digital hardware schematics, and simulation tools* rather than heavy physical machinery.", "type": "Digital Focus", "options": ["1", "2", "3", "4", "5", "6", "7"]},
     {"q": "I am comfortable managing projects on a *construction site, in a manufacturing plant, or in resource extraction* (Fieldwork/HSE).", "type": "Fieldwork/Process", "options": ["1", "2", "3", "4", "5", "6", "7"]},
     {"q": "I am drawn to solving problems related to *environmental sustainability, water treatment, or waste recycling*.", "type": "Environmental/Social", "options": ["1", "2", "3", "4", "5", "6", "7"]},
-    {"q": "I find more satisfaction in *improving existing systems* (efficiency, speed, cost) than in creating entirely new products.", "type": "Continuous Improvement", "options": ["1", "2" , "3", "4", "5", "6", "7"]},
+    {"q": "I find more satisfaction in *improving existing systems* (efficiency, speed, cost) than in creating entirely new products.", "type": "Continuous Improvement", "options": ["1", "2", "3", "4", "5", "6", "7"]},
     {"q": "I value working on small, *highly complex, custom electromechanical devices* with tight tolerances (e.g., surgical tools, robotics).", "type": "High Precision", "options": ["1", "2", "3", "4", "5", "6", "7"]},
 
     // *Deep Aptitude Probes*
@@ -366,3 +366,6 @@ export const domainDescriptions: Record<string, string> = {
 
 
 
+
+
+    
