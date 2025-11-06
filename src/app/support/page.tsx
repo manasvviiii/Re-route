@@ -77,7 +77,7 @@ export default function SupportPage() {
     if (!input.trim()) return;
 
     const userMessage = {
-      id: messages.length + 1,
+      id: Date.now(),
       text: input,
       sender: 'user',
       timestamp: new Date()
@@ -89,7 +89,7 @@ export default function SupportPage() {
 
     setTimeout(() => {
       const botResponse = {
-        id: messages.length + 2,
+        id: Date.now() + 1,
         text: getResponse(input),
         sender: 'bot',
         timestamp: new Date()

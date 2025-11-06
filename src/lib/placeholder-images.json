@@ -81,7 +81,7 @@
     {
       "id": "resource-4",
       "description": "Placeholder for a learning resource",
-      "imageUrl": "https://images.unsplash.com/photo-1600320844678-43cebba1cdfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZWNoJTIwY29uZmVyZW5jZXxlbnwwfHx8fDE3NTk0OTk3MTB8MA&ixlibrb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1600320844678-43cebba1cdfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZWNoJTIwY29uZmVyZW5jZXxlbnwwfHx8fDE3NTk0OTk3MTB8MA&ixlibrb-4-1.0&q=80&w=1080",
       "imageHint": "tech conference"
     }
   ]
