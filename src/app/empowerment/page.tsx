@@ -1,3 +1,4 @@
+
 import { empowermentArticles } from '@/lib/content';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -23,40 +24,42 @@ export default function EmpowermentHub() {
         <div className="container px-4 md:px-6">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {empowermentArticles.map((article) => (
-              <Card key={article.title} className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                 {article.image && (
-                  <div className="relative h-56 w-full overflow-hidden">
-                    <Image
-                      src={article.image.imageUrl}
-                      alt={article.image.description}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      data-ai-hint={article.image.imageHint}
-                    />
-                  </div>
-                )}
-                <CardHeader>
-                  <div className="flex flex-col gap-2">
-                     <Badge variant="secondary" className="w-fit">{article.category}</Badge>
-                     <h2 className="text-xl font-bold font-headline leading-tight">{article.title}</h2>
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col">
-                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
-                    {article.excerpt}
-                  </p>
-                  <div className="text-xs text-muted-foreground flex justify-between items-center border-t pt-4 mt-auto">
-                     <div className="flex items-center gap-2">
-                        <User className="h-3 w-3" />
-                        <span>{article.author}</span>
-                     </div>
+              <Link key={article.slug} href={`/empowerment/${article.slug}`} className="group block">
+                <Card className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full">
+                  {article.image && (
+                    <div className="relative h-56 w-full overflow-hidden">
+                      <Image
+                        src={article.image.imageUrl}
+                        alt={article.image.description}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        data-ai-hint={article.image.imageHint}
+                      />
+                    </div>
+                  )}
+                  <CardHeader>
+                    <div className="flex flex-col gap-2">
+                      <Badge variant="secondary" className="w-fit">{article.category}</Badge>
+                      <h2 className="text-xl font-bold font-headline leading-tight">{article.title}</h2>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="flex-grow flex flex-col">
+                    <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                      {article.excerpt}
+                    </p>
+                    <div className="text-xs text-muted-foreground flex justify-between items-center border-t pt-4 mt-auto">
                       <div className="flex items-center gap-2">
-                        <Calendar className="h-3 w-3" />
-                        <span>{article.date}</span>
-                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                          <User className="h-3 w-3" />
+                          <span>{article.author}</span>
+                      </div>
+                        <div className="flex items-center gap-2">
+                          <Calendar className="h-3 w-3" />
+                          <span>{article.date}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
