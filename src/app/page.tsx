@@ -62,7 +62,7 @@ export default function Home() {
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-foreground mb-4 font-headline">
               NEET Closed One Door.
               <br />
-              <span className="bg-gradient-to-r from-[#FFB347] to-[#FFDA63] text-transparent bg-clip-text">
+              <span className="text-foreground">
                 Engineering Opens a Thousand.
               </span>
             </h1>
