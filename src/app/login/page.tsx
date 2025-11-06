@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { FirebaseError } from 'firebase/app';
 
 export default function LoginPage() {
   const auth = useAuth();
@@ -27,24 +28,66 @@ export default function LoginPage() {
     }
   }, [user, router]);
 
+  const handleAuthError = (error: any) => {
+    let title = 'Authentication Failed';
+    let description = 'An unexpected error occurred. Please try again.';
+
+    if (error instanceof FirebaseError) {
+      switch (error.code) {
+        case 'auth/invalid-credential':
+          title = 'Login Failed';
+          description = 'The email or password you entered is incorrect. Please check your credentials and try again.';
+          break;
+        case 'auth/email-already-in-use':
+          title = 'Sign Up Failed';
+          description = 'An account with this email address already exists. Please try logging in instead.';
+          break;
+        case 'auth/weak-password':
+          title = 'Sign Up Failed';
+          description = 'The password is too weak. Please use at least 6 characters.';
+          break;
+        case 'auth/invalid-email':
+          title = 'Invalid Email';
+          description = 'The email address you entered is not valid. Please check and try again.';
+          break;
+        default:
+          description = error.message;
+          break;
+      }
+    }
+
+    toast({
+      variant: 'destructive',
+      title: title,
+      description: description,
+    });
+    setIsAuthInProgress(false);
+  };
+
   const handleAction = async (action: 'signIn' | 'signUp') => {
     setIsAuthInProgress(true);
     try {
       if (action === 'signIn') {
-        initiateEmailSignIn(auth, email, password);
+        await initiateEmailSignIn(auth, email, password);
       } else {
-        initiateEmailSignUp(auth, email, password);
+        await initiateEmailSignUp(auth, email, password);
       }
       // The onAuthStateChanged listener in FirebaseProvider will handle the redirect
     } catch (error: any) {
-      toast({
-        variant: 'destructive',
-        title: 'Authentication Failed',
-        description: error.message || 'An unexpected error occurred.',
-      });
-      setIsAuthInProgress(false);
+      handleAuthError(error);
     }
   };
+  
+  // This effect handles the non-blocking nature of the new auth calls
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(
+      () => {}, 
+      (error) => {
+        handleAuthError(error);
+      }
+    );
+    return () => unsubscribe();
+  }, [auth]);
 
   if (isUserLoading || user) {
     return (
