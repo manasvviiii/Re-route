@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Progress } from '@/components/ui/progress';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 type QuizFormProps = {
@@ -45,6 +45,8 @@ export function QuizForm({ formAction, formRef }: QuizFormProps) {
   
   const progressValue = ((currentQuestion + 1) / aptitudeQuestions.length) * 100;
   const currentQData = aptitudeQuestions[currentQuestion];
+  const questionTextHtml = currentQData.q.replace(/\*(.*?)\*/g, '<strong class="text-primary">$1</strong>');
+
 
   return (
     <form action={formAction} ref={formRef}>
@@ -58,28 +60,34 @@ export function QuizForm({ formAction, formRef }: QuizFormProps) {
         </div>
       </CardHeader>
       <CardContent>
-        <p className="text-center text-lg font-medium mb-8 min-h-[56px]">
-          {currentQData.q}
-        </p>
+        <p 
+            className="text-center text-lg font-medium mb-8 min-h-[56px]"
+            dangerouslySetInnerHTML={{ __html: questionTextHtml }}
+        />
 
         <RadioGroup
           name={`question-${currentQuestion}`}
           onValueChange={handleAnswerChange}
           value={answers[currentQuestion]}
-          className="space-y-4"
+          className="space-y-2"
         >
-          {currentQData.options.map((option, index) => (
-            <Label
-              key={index}
-              htmlFor={`option-${index}`}
-              className={`flex items-center p-4 rounded-md border transition-all cursor-pointer hover:border-primary ${
-                answers[currentQuestion] === option ? 'border-primary bg-primary/5' : ''
-              }`}
-            >
-              <RadioGroupItem value={option} id={`option-${index}`} className="mr-4" />
-              <span className="flex-1">{option}</span>
-            </Label>
-          ))}
+            <div className="flex justify-between items-center w-full max-w-lg mx-auto mb-4">
+            {currentQData.options.map((option, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <RadioGroupItem value={option} id={`option-${index}`} className="h-6 w-6" />
+                <Label
+                  htmlFor={`option-${index}`}
+                  className="mt-2 text-xs text-muted-foreground cursor-pointer"
+                >
+                  {option}
+                </Label>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-between text-xs text-muted-foreground max-w-lg mx-auto">
+             <span>Not at all</span>
+             <span>Absolute Passion</span>
+          </div>
         </RadioGroup>
         
         {/* Hidden inputs to carry over all answers on final submission */}

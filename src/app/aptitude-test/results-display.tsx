@@ -17,19 +17,24 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
   const { results } = result;
   const topThree = results.slice(0, 3);
   const maxScore = results.length > 0 ? results[0].score : 1;
+  
+  const renderDescription = (description: string) => {
+    const html = description.replace(/\*(.*?)\*/g, '<strong class="font-semibold text-foreground">$1</strong>');
+    return <p className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: html }} />;
+  };
 
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h2 className="text-3xl font-bold font-headline mt-4">Your Detailed Career Compatibility Results</h2>
-        <p className="text-muted-foreground mt-2">Based on your answers, here's a breakdown of your compatibility with various engineering domains.</p>
+        <h2 className="text-3xl font-bold font-headline mt-4">Your Deep-Dive Career Compatibility Results</h2>
+        <p className="text-muted-foreground mt-2">Based on your problem-solving mindset, here is your detailed breakdown.</p>
       </div>
 
       <Card className="bg-background">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 font-headline">
             <BarChart className="h-6 w-6 text-primary" />
-            Compatibility Scores
+            Compatibility Score Breakdown
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -51,7 +56,7 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
       </Card>
 
       <div className="space-y-4">
-        <h3 className="text-2xl font-bold text-center font-headline">Your Top 3 Matches</h3>
+        <h3 className="text-2xl font-bold text-center font-headline">Your Top 3 Most Precise Matches</h3>
         <div className="grid gap-6 md:grid-cols-1">
           {topThree.map(({ domain, score }, index) => (
             <Card key={index} className="flex flex-col border-2 border-transparent" data-rank={index+1}>
@@ -63,7 +68,7 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
-                <p className="text-muted-foreground">{domainDescriptions[domain] || 'Explore this exciting field to learn more!'}</p>
+                {renderDescription(domainDescriptions[domain] || 'Explore this exciting field to learn more!')}
               </CardContent>
             </Card>
           ))}
@@ -71,8 +76,8 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
       </div>
       
        <div className="text-center pt-8">
-            <h3 className="text-xl font-bold font-headline">Ready for the Next Step?</h3>
-            <p className="text-muted-foreground mt-2 mb-4">Remember: The best engineering branch is the one that fuels your passion! Use this result as a starting point for further research.</p>
+            <h3 className="text-xl font-bold font-headline">Your responses suggest a strong, specialized path.</h3>
+            <p className="text-muted-foreground mt-2 mb-4">Research the core skills listed for your top match to plan your next steps!</p>
             <Button asChild size="lg">
                 <Link href="/domains">
                     Explore All Domains

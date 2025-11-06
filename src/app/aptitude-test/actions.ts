@@ -24,35 +24,19 @@ function dotProduct(arr1: number[], arr2: number[]): number {
 
 export async function getAptitudeAnalysis(prevState: FormState, formData: FormData): Promise<FormState> {
   try {
-    const optionToScore: Record<string, number> = {
-      "Not at all": 1,
-      "Slightly": 2,
-      "Moderately": 3,
-      "Highly": 4,
-      "Very Highly": 5
-    };
-    
-    // Create a schema that expects the option text, not the score
     const schema = z.object({
-      answers: z.array(z.string()).length(aptitudeQuestions.length, { message: 'All questions must be answered.' }),
+      answers: z.array(z.coerce.number().min(1).max(7)).length(aptitudeQuestions.length, { message: 'All questions must be answered.' }),
     });
 
-    const answerTexts = aptitudeQuestions.map((_, index) => formData.get(`question-${index}`) as string);
+    const answerValues = aptitudeQuestions.map((_, index) => formData.get(`question-${index}`) as string);
     
-    const validation = schema.safeParse({ answers: answerTexts });
+    const validation = schema.safeParse({ answers: answerValues });
 
     if (!validation.success) {
       return { data: null, error: validation.error.errors[0].message };
     }
 
-    // Convert text answers to scores
-    const userScores = validation.data.answers.map(answer => {
-      const score = optionToScore[answer];
-      if (score === undefined) {
-        throw new Error(`Invalid answer option provided: ${answer}`);
-      }
-      return score;
-    });
+    const userScores = validation.data.answers;
 
     const scores: Record<string, number> = {};
     for (const domain in domainMatrix) {

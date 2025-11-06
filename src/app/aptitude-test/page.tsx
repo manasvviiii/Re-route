@@ -62,12 +62,12 @@ export default function AptitudeTestPage() {
 
     return (
       <div className="text-center">
-        <h2 className="text-3xl font-bold font-headline mb-4">Discover Your Engineering Persona</h2>
+        <h2 className="text-3xl font-bold font-headline mb-4">Master Engineering Aptitude Survey (ME-AS)</h2>
         <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-          This short 10-question test will help you understand your strengths and match them with high-growth engineering domains. Answer honestly to get the most accurate results.
+          This in-depth test uses 20 scenarios to match your core problem-solving mindset. Answer honestly on a scale of 1 (Not at all) to 7 (Absolute Passion) to get the most accurate results.
         </p>
         <Button size="lg" onClick={() => setQuizStarted(true)}>
-          Start the Test
+          Start the Survey
         </Button>
       </div>
     );
