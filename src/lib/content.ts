@@ -78,7 +78,7 @@ export const empowermentArticles = [
     excerpt: 'A failure in her Class 12 Chemistry exam redirected Kangana Ranaut from a medical career to becoming one of Bollywood\'s leading actresses.',
     author: 'Entertainment Weekly',
     date: 'July 14, 2024',
-    image: PlaceHolderImages.find((img) => img.id === 'article-kangana'),
+    image: PlaceHolderImages.find((img) => img.id === 'article-1'),
     category: 'Celebrity Story',
     fullContent: `
 <p>Before she was the "Queen" of Bollywood, Kangana Ranaut was a science student from a small town in Himachal Pradesh with a dream of becoming a doctor. Her family had high hopes for her to pursue a medical career, and she was diligently preparing for the All India Pre-Medical Test (AIPMT), the exam that preceded NEET.</p>
@@ -96,7 +96,7 @@ export const empowermentArticles = [
     excerpt: 'The beloved actor once failed the Pre-Medical Test (PMT), the precursor to NEET, but went on to become a successful actor.',
     author: 'Bollywood Insider',
     date: 'July 11, 2024',
-    image: PlaceHolderImages.find((img) => img.id === 'article-5'),
+    image: PlaceHolderImages.find((img) => img.id === 'article-2'),
     category: 'Celebrity Story',
     fullContent: `
 <p>Ayushmann Khurrana is celebrated today as one of Bollywood's most versatile and talented actors, known for his unconventional choice of roles and his relatable charm. But before he graced the silver screen, he was a science student from Chandigarh with ambitions of becoming a doctor.</p>
@@ -355,6 +355,7 @@ export const domainDescriptions: Record<string, string> = {
     'Industrial Engineering (IE)':     "Focus: Optimizing complex processes, logistics, supply chains, and management. It's the engineering of 'efficiency'. *Core Skills: Optimization, Data, Management, Continuous Improvement.* Path: Operations Manager, Supply Chain Analyst, Quality Engineer.",
     'Biomedical Engineering (BME)':    "Focus: Applying engineering principles to biological systems and medicine (e.g., medical devices, bio-instrumentation). *Core Skills: Chemistry, Electronics, Societal Impact, High Precision.* Path: Medical Device Engineer, Clinical Engineer, Biomechanics Specialist.",
 };
+
 
 
 
