@@ -20,7 +20,7 @@ export default function Footer() {
             <div>
               <h4 className="font-semibold mb-4 font-headline">Explore</h4>
               <ul className="space-y-2">
-                {navLinks.slice(0, 4).map((link) => (
+                {navLinks.map((link) => (
                    <li key={link.href}>
                      <Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors">
                        {link.label}
@@ -32,13 +32,6 @@ export default function Footer() {
              <div>
               <h4 className="font-semibold mb-4 font-headline">Resources</h4>
               <ul className="space-y-2">
-                 {navLinks.slice(4).map((link) => (
-                   <li key={link.href}>
-                     <Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors">
-                       {link.label}
-                     </Link>
-                   </li>
-                 ))}
                   <li>
                     <Link href="/aptitude-test" className="text-muted-foreground hover:text-primary transition-colors">
                       Aptitude Test

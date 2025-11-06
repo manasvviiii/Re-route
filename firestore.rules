@@ -4,18 +4,17 @@
  *
  * Data Structure:
  * - /users/{userId}: User profile information, private to each user.
- * - /forums/{forumId}: Forum metadata, publicly accessible.
- * - /forums/{forumId}/posts/{postId}: Posts within a forum, write-protected by the author.
- * - /forums/{forumId}/posts/{postId}/comments/{commentId}: Comments on posts, write-protected by the author.
+ * - /posts/{postId}: Posts within the forum, publicly readable, write-protected by the author.
  *
  * Key Security Decisions:
  * - Users can only access their own profile data.
- * - Forums are publicly readable.
- * - Posts and Comments: Authors can create, update, and delete their own posts and comments.
+ * - Posts are publicly readable.
+ * - Authenticated users can create posts.
+ * - Authors can update and delete their own posts.
  * - No listing of users is allowed.
  *
  * Denormalization for Authorization:
- * - Posts and Comments store the userId of the author, enabling ownership checks without additional reads.
+ * - Posts store the userId of the author, enabling ownership checks without additional reads.
  */
 rules_version = '2';
 service cloud.firestore {
@@ -24,129 +23,32 @@ service cloud.firestore {
     /**
      * @description Allows users to manage their own profile data.
      * @path /users/{userId}
-     * @allow (create) User with ID 'user123' can create their profile.
-     *   `request.auth.uid == 'user123' && request.resource.data.id == 'user123'`
-     * @allow (get) User with ID 'user123' can read their profile.
-     *   `request.auth.uid == 'user123'`
-     * @allow (update) User with ID 'user123' can update their profile.
-     *   `request.auth.uid == 'user123' && resource.data.id == 'user123'`
-     * @allow (delete) User with ID 'user123' can delete their profile.
-     *   `request.auth.uid == 'user123' && resource.data.id == 'user123'`
-     * @deny (create) User with ID 'user456' cannot create a profile for 'user123'.
-     *   `request.auth.uid == 'user456' && request.resource.data.id == 'user123'`
-     * @deny (get) User with ID 'user456' cannot read the profile of 'user123'.
-     *   `request.auth.uid == 'user456'`
-     * @deny (update) User with ID 'user456' cannot update the profile of 'user123'.
-     *   `request.auth.uid == 'user456'`
-     * @deny (delete) User with ID 'user456' cannot delete the profile of 'user123'.
-     *   `request.auth.uid == 'user456'`
-     * @principle Enforces document ownership for writes, validates relational integrity on creation and ensures immutability for ownership field.
      */
     match /users/{userId} {
-      function isOwner(userId) {
+      function isOwner() {
         return request.auth.uid == userId;
       }
 
-      function isExistingOwner(userId) {
-        return isOwner(userId) && resource != null;
-      }
-
-      allow get: if isOwner(userId);
-      allow list: if false; // Prevent listing of all users
-
-      allow create: if isOwner(userId) && request.resource.data.id == userId;
-      allow update: if isExistingOwner(userId) && request.resource.data.id == resource.data.id;
-      allow delete: if isExistingOwner(userId);
+      allow read, write: if isOwner();
+      allow list: if false; 
     }
 
     /**
-     * @description Allows public read access to forum metadata.
-     * @path /forums/{forumId}
-     * @allow (get) Any user can read forum data.
-     *   `true`
-     * @allow (list) Any user can list forums.
-     *   `true`
-     * @deny (create) No user can create a forum without authentication.
-     *   `true` (only if unauthenticated)
-     * @deny (update) No user can update a forum without proper authorization (TODO).
-     *   `true`
-     * @deny (delete) No user can delete a forum without proper authorization (TODO).
-     *   `true`
-     * @principle Grants public read access, restricts write access.
+     * @description Publicly readable posts, with write access restricted to authors.
+     * @path /posts/{postId}
      */
-    match /forums/{forumId} {
-      allow get, list: if true;
-      allow create: if false; // TODO: Add admin role check
-      allow update: if false; // TODO: Add admin role check
-      allow delete: if false; // TODO: Add admin role check
-    }
-
-    /**
-     * @description Allows authors to manage their own posts within a forum.
-     * @path /forums/{forumId}/posts/{postId}
-     * @allow (create) User 'user123' can create a post in forum 'forum456' if they are the author.
-     *   `request.auth.uid == 'user123' && request.resource.data.userId == 'user123'`
-     * @allow (get) Any user can read a post in forum 'forum456'.
-     *   `true`
-     * @allow (update) User 'user123' can update their post in forum 'forum456'.
-     *   `request.auth.uid == 'user123' && resource.data.userId == 'user123'`
-     * @allow (delete) User 'user123' can delete their post in forum 'forum456'.
-     *   `request.auth.uid == 'user123' && resource.data.userId == 'user123'`
-     * @deny (create) User 'user456' cannot create a post in forum 'forum456' on behalf of 'user123'.
-     *   `request.auth.uid == 'user456' && request.resource.data.userId == 'user123'`
-     * @deny (update) User 'user456' cannot update a post in forum 'forum456' authored by 'user123'.
-     *   `request.auth.uid == 'user456' && resource.data.userId == 'user123'`
-     * @deny (delete) User 'user456' cannot delete a post in forum 'forum456' authored by 'user123'.
-     *   `request.auth.uid == 'user456' && resource.data.userId == 'user123'`
-     * @principle Enforces document ownership for writes, validates relational integrity on creation and ensures immutability for ownership field.
-     */
-    match /forums/{forumId}/posts/{postId} {
-      function isOwner(userId) {
-        return request.auth.uid == userId;
+    match /posts/{postId} {
+      function isAuthor() {
+        return request.auth.uid == resource.data.userId;
+      }
+      
+      function isNewPostAuthor() {
+         return request.auth.uid == request.resource.data.userId;
       }
 
-      function isExistingOwner(userId) {
-        return isOwner(userId) && resource != null;
-      }
-
-      allow get, list: if true;
-      allow create: if isOwner(request.resource.data.userId) && request.resource.data.userId == request.auth.uid;
-      allow update: if isExistingOwner(resource.data.userId);
-      allow delete: if isExistingOwner(resource.data.userId);
-    }
-
-    /**
-     * @description Allows authors to manage their own comments within a post.
-     * @path /forums/{forumId}/posts/{postId}/comments/{commentId}
-     * @allow (create) User 'user123' can create a comment on post 'post789' if they are the author.
-     *   `request.auth.uid == 'user123' && request.resource.data.userId == 'user123'`
-     * @allow (get) Any user can read a comment on post 'post789'.
-     *   `true`
-     * @allow (update) User 'user123' can update their comment on post 'post789'.
-     *   `request.auth.uid == 'user123' && resource.data.userId == 'user123'`
-     * @allow (delete) User 'user123' can delete their comment on post 'post789'.
-     *   `request.auth.uid == 'user123' && resource.data.userId == 'user123'`
-     * @deny (create) User 'user456' cannot create a comment on post 'post789' on behalf of 'user123'.
-     *   `request.auth.uid == 'user456' && request.resource.data.userId == 'user123'`
-     * @deny (update) User 'user456' cannot update a comment on post 'post789' authored by 'user123'.
-     *   `request.auth.uid == 'user456' && resource.data.userId == 'user123'`
-     * @deny (delete) User 'user456' cannot delete a comment on post 'post789' authored by 'user123'.
-     *   `request.auth.uid == 'user456' && resource.data.userId == 'user123'`
-     * @principle Enforces document ownership for writes, validates relational integrity on creation and ensures immutability for ownership field.
-     */
-    match /forums/{forumId}/posts/{postId}/comments/{commentId} {
-      function isOwner(userId) {
-        return request.auth.uid == userId;
-      }
-
-      function isExistingOwner(userId) {
-        return isOwner(userId) && resource != null;
-      }
-
-      allow get, list: if true;
-      allow create: if isOwner(request.resource.data.userId) && request.resource.data.userId == request.auth.uid;
-      allow update: if isExistingOwner(resource.data.userId);
-      allow delete: if isExistingOwner(resource.data.userId);
+      allow read: if true;
+      allow create: if request.auth != null && isNewPostAuthor();
+      allow update, delete: if isAuthor();
     }
   }
 }

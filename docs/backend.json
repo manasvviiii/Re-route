@@ -1,246 +1,47 @@
+
 {
   "entities": {
     "User": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "User",
       "type": "object",
       "description": "Represents a user of the PivotPath platform.",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the User entity."
-        },
-        "username": {
-          "type": "string",
-          "description": "The user's chosen username."
-        },
-        "email": {
-          "type": "string",
-          "description": "The user's email address.",
-          "format": "email"
-        },
-        "name": {
-          "type": "string",
-          "description": "The user's full name."
-        },
-        "creationDate": {
-          "type": "string",
-          "description": "The date and time the user account was created.",
-          "format": "date-time"
-        }
+        "id": { "type": "string", "description": "Unique identifier for the User entity." },
+        "username": { "type": "string", "description": "The user's chosen username." },
+        "email": { "type": "string", "format": "email", "description": "The user's email address." },
+        "name": { "type": "string", "description": "The user's full name." },
+        "creationDate": { "type": "string", "format": "date-time", "description": "The date and time the user account was created." }
       },
-      "required": [
-        "id",
-        "username",
-        "email",
-        "name",
-        "creationDate"
-      ]
-    },
-    "Forum": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "Forum",
-      "type": "object",
-      "description": "Represents a forum within the PivotPath platform.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the Forum entity."
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the forum."
-        },
-        "description": {
-          "type": "string",
-          "description": "A description of the forum."
-        },
-        "creationDate": {
-          "type": "string",
-          "description": "The date and time the forum was created.",
-          "format": "date-time"
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "description",
-        "creationDate"
-      ]
+      "required": ["id", "username", "email", "name", "creationDate"]
     },
     "Post": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "Post",
       "type": "object",
       "description": "Represents a post within a forum.",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the Post entity."
-        },
-        "forumId": {
-          "type": "string",
-          "description": "Reference to Forum. (Relationship: Forum 1:N Post)"
-        },
-        "userId": {
-          "type": "string",
-          "description": "Reference to User. (Relationship: User 1:N Post)"
-        },
-        "title": {
-          "type": "string",
-          "description": "The title of the post."
-        },
-        "content": {
-          "type": "string",
-          "description": "The content of the post."
-        },
-        "creationDate": {
-          "type": "string",
-          "description": "The date and time the post was created.",
-          "format": "date-time"
-        },
-        "lastEditDate": {
-          "type": "string",
-          "description": "The date and time the post was last edited.",
-          "format": "date-time"
-        }
+        "id": { "type": "string", "description": "Unique identifier for the Post entity." },
+        "userId": { "type": "string", "description": "Reference to User. (Relationship: User 1:N Post)" },
+        "authorUsername": { "type": "string", "description": "The username of the post's author." },
+        "title": { "type": "string", "description": "The title of the post." },
+        "content": { "type": "string", "description": "The content of the post." },
+        "category": { "type": "string", "description": "The category of the post." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "The date and time the post was created." },
+        "replies": { "type": "number", "description": "The number of replies to the post." }
       },
-      "required": [
-        "id",
-        "forumId",
-        "userId",
-        "title",
-        "content",
-        "creationDate"
-      ]
-    },
-    "Comment": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "Comment",
-      "type": "object",
-      "description": "Represents a comment on a post.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the Comment entity."
-        },
-        "postId": {
-          "type": "string",
-          "description": "Reference to Post. (Relationship: Post 1:N Comment)"
-        },
-        "userId": {
-          "type": "string",
-          "description": "Reference to User. (Relationship: User 1:N Comment)"
-        },
-        "content": {
-          "type": "string",
-          "description": "The content of the comment."
-        },
-        "creationDate": {
-          "type": "string",
-          "description": "The date and time the comment was created.",
-          "format": "date-time"
-        },
-        "lastEditDate": {
-          "type": "string",
-          "description": "The date and time the comment was last edited.",
-          "format": "date-time"
-        }
-      },
-      "required": [
-        "id",
-        "postId",
-        "userId",
-        "content",
-        "creationDate"
-      ]
+      "required": ["id", "userId", "authorUsername", "title", "content", "category", "createdAt"]
     }
   },
   "auth": {
-    "providers": [
-      "password",
-      "anonymous"
-    ]
+    "providers": ["password", "anonymous"]
   },
   "firestore": {
-    "structure": [
-      {
-        "path": "/users/{userId}",
-        "definition": {
-          "entityName": "User",
-          "schema": {
-            "$ref": "#/backend/entities/User"
-          },
-          "description": "Stores user profile information. This is private data, only accessible to the user themselves.",
-          "params": [
-            {
-              "name": "userId",
-              "description": "The unique identifier for the user."
-            }
-          ]
-        }
-      },
-      {
-        "path": "/forums/{forumId}",
-        "definition": {
-          "entityName": "Forum",
-          "schema": {
-            "$ref": "#/backend/entities/Forum"
-          },
-          "description": "Stores forum information.",
-          "params": [
-            {
-              "name": "forumId",
-              "description": "The unique identifier for the forum."
-            }
-          ]
-        }
-      },
-      {
-        "path": "/forums/{forumId}/posts/{postId}",
-        "definition": {
-          "entityName": "Post",
-          "schema": {
-            "$ref": "#/backend/entities/Post"
-          },
-          "description": "Stores posts within a forum. Includes denormalized 'userId' for authorization independence.",
-          "params": [
-            {
-              "name": "forumId",
-              "description": "The unique identifier for the forum."
-            },
-            {
-              "name": "postId",
-              "description": "The unique identifier for the post."
-            }
-          ]
-        }
-      },
-      {
-        "path": "/forums/{forumId}/posts/{postId}/comments/{commentId}",
-        "definition": {
-          "entityName": "Comment",
-          "schema": {
-            "$ref": "#/backend/entities/Comment"
-          },
-          "description": "Stores comments within a post. Includes denormalized 'userId' for authorization independence.",
-          "params": [
-            {
-              "name": "forumId",
-              "description": "The unique identifier for the forum."
-            },
-            {
-              "name": "postId",
-              "description": "The unique identifier for the post."
-            },
-            {
-              "name": "commentId",
-              "description": "The unique identifier for the comment."
-            }
-          ]
-        }
-      }
-    ],
-    "reasoning": "The Firestore structure is designed to support a community forum for failed NEET aspirants exploring alternative career paths. The design emphasizes authorization independence and clear security rules. User data is stored under `/users/{userId}` for private profile information. Forums are stored in the `/forums` collection. Posts are nested under `/forums/{forumId}/posts/{postId}` to establish a clear hierarchy. Comments are then nested under `/forums/{forumId}/posts/{postId}/comments/{commentId}`. This structure promotes easy data retrieval and maintainability.\n\nAuthorization Independence:\n\n*   Posts and Comments include the `userId` field, denormalizing the author's ID. This allows security rules to verify ownership without needing to perform `get()` operations to retrieve user data.\n\nQAPs (Rules are not Filters):\n\n*   The nested structure enables efficient querying of posts within a specific forum. List operations can be secured by checking the existence of the forum without filtering post data.\n\n*   Comments are structured similarly under posts, allowing for easy retrieval and filtering of comments related to a specific post.\n\n*   The consistent use of `userId` across different collections simplifies the implementation of ownership-based security rules."
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Stores user profile information. This is private data, only accessible to the user themselves."
+    },
+    "/posts/{postId}": {
+      "schema": { "$ref": "#/entities/Post" },
+      "description": "Stores all posts for the community forum."
+    }
   }
 }

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, ArrowRight } from 'lucide-react';
+import { Menu, ArrowRight, LogOut, LogIn } from 'lucide-react';
 import { navLinks } from '@/lib/content';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -14,9 +14,23 @@ import {
   SheetClose,
 } from '@/components/ui/sheet';
 import * as React from 'react';
+import { useUser, useAuth } from '@/firebase';
+import { signOut } from 'firebase/auth';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+
 
 export default function Header() {
   const pathname = usePathname();
+  const { user, isUserLoading } = useUser();
+  const auth = useAuth();
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
@@ -26,6 +40,10 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  const handleSignOut = async () => {
+    await signOut(auth);
+  };
 
   const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
      <SheetClose asChild>
@@ -40,6 +58,51 @@ export default function Header() {
       </Link>
      </SheetClose>
   );
+
+  const UserMenu = () => {
+    if (isUserLoading) {
+      return null;
+    }
+    if (user) {
+      return (
+         <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+              <Avatar className="h-8 w-8">
+                 <AvatarImage src={user.photoURL || undefined} alt={user.displayName || "User"} />
+                 <AvatarFallback>{user.isAnonymous ? 'A' : user.email?.charAt(0).toUpperCase() || 'U'}</AvatarFallback>
+              </Avatar>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56" align="end" forceMount>
+            <DropdownMenuLabel className="font-normal">
+              <div className="flex flex-col space-y-1">
+                <p className="text-sm font-medium leading-none">
+                  {user.isAnonymous ? 'Anonymous User' : user.displayName || user.email}
+                </p>
+                 {!user.isAnonymous && <p className="text-xs leading-none text-muted-foreground">
+                  {user.email}
+                </p>}
+              </div>
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={handleSignOut}>
+              <LogOut className="mr-2 h-4 w-4" />
+              <span>Log out</span>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )
+    }
+    return (
+      <Button asChild variant="outline">
+        <Link href="/login">
+          <LogIn className="mr-2 h-4 w-4" />
+          Login
+        </Link>
+      </Button>
+    )
+  }
 
   return (
     <header
@@ -67,7 +130,7 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-4">
           <Button
             asChild
             className="group rounded-full bg-gradient-to-r from-[#FFB347] to-[#FFDA63] text-accent-foreground font-semibold hover:shadow-lg transition-shadow"
@@ -77,6 +140,7 @@ export default function Header() {
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
+          <UserMenu />
         </div>
         <div className="md:hidden">
           <Sheet>
