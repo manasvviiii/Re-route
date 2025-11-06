@@ -1,13 +1,14 @@
+
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User } from 'lucide-react';
 
-export default function CustomerSupportBot() {
+export default function SupportPage() {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hello! I'm your AI support assistant for PivotPath. How can I help you today? You can ask about engineering domains, the aptitude test, or how to navigate the site.",
+      text: "Hello! I'm your Re-route support assistant. How can I help you today? You can ask about engineering domains, the aptitude test, or how to navigate the site.",
       sender: 'bot',
       timestamp: new Date()
     }
@@ -37,11 +38,11 @@ export default function CustomerSupportBot() {
     const msg = userMessage.toLowerCase();
 
     if (knowledgeBase.greetings.some(word => msg.includes(word))) {
-      return "Hello! I'm happy to help. What would you like to know about PivotPath or engineering careers?";
+      return "Hello! I'm happy to help. What would you like to know about Re-route or engineering careers?";
     }
 
     if (knowledgeBase.domains.some(word => msg.includes(word))) {
-      return "The 'Domains' section has detailed guides on various engineering fields like Software, AI/ML, Mechanical, and more. It covers job outlooks, salary expectations, and required skills. Would you like me to take you there?";
+      return "The 'Domains' section has detailed guides on various engineering fields like Software, AI/ML, Mechanical, and more. It covers job outlooks, salary expectations, and required skills. You can explore it to find the best fit for you.";
     }
 
     if (knowledgeBase.aptitudeTest.some(word => msg.includes(word))) {
@@ -64,7 +65,7 @@ export default function CustomerSupportBot() {
       return "You're very welcome! Is there anything else I can help you with today?";
     }
 
-    return "I'm sorry, I'm not sure how to answer that. My main purpose is to help you navigate PivotPath. You can ask me about our features like the Empowerment Hub, Domain Navigator, or Aptitude Test.";
+    return "I'm sorry, I'm not sure how to answer that. My main purpose is to help you navigate Re-route. You can ask me about our features like the Empowerment Hub, Domain Navigator, or Aptitude Test.";
   };
 
   const handleSend = () => {
@@ -110,7 +111,7 @@ export default function CustomerSupportBot() {
               <Bot className="w-6 h-6 text-accent-foreground" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground font-headline">PivotPath Support</h1>
+              <h1 className="text-xl font-bold text-foreground font-headline">Re-route Support</h1>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-sm text-muted-foreground">Online</span>
