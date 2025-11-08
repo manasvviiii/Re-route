@@ -1,7 +1,3 @@
-
-
-
-
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 
@@ -358,17 +354,3 @@ export const domainDescriptions: Record<string, string> = {
     'Industrial Engineering (IE)':     "Focus: Optimizing complex processes, logistics, supply chains, and management. It's the engineering of 'efficiency'. *Core Skills: Optimization, Data, Management, Continuous Improvement.* Path: Operations Manager, Supply Chain Analyst, Quality Engineer.",
     'Biomedical Engineering (BME)':    "Focus: Applying engineering principles to biological systems and medicine (e.g., medical devices, bio-instrumentation). *Core Skills: Chemistry, Electronics, Societal Impact, High Precision.* Path: Medical Device Engineer, Clinical Engineer, Biomechanics Specialist.",
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
