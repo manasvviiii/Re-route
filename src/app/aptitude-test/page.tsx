@@ -78,7 +78,7 @@ export default function AptitudeTestPage() {
       <section className="py-16 md:py-24 text-center bg-card border-b">
         <div className="container px-4 md:px-6">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-foreground mb-4 font-headline">
-            Aptitude & Compatibility Test
+            Compatibility Test
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
             Let's translate your unique abilities into a clear career direction in tech.
