@@ -7,22 +7,21 @@ import { CheckCircle2, Briefcase, IndianRupee, BarChart } from 'lucide-react';
 import { DomainIcon } from '@/components/icons/domain-icons';
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return engineeringDomains.map((domain) => ({
     slug: domain.slug,
   }));
 }
 
-export default function DomainDetailPage({ params }: Props) {
-  const domain = engineeringDomains.find((d) => d.slug === params.slug);
+export default async function DomainDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const domain = engineeringDomains.find((d) => d.slug === slug);
 
-  if (!domain) {
-    notFound();
-  }
-  
+  if (!domain) notFound();
+
   const { heroImage } = domain;
 
   return (
@@ -69,6 +68,7 @@ export default function DomainDetailPage({ params }: Props) {
               <p className="text-xs text-muted-foreground">{domain.jobOutlook.details}</p>
             </CardContent>
           </Card>
+
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Salary Range (Entry-Mid)</CardTitle>
@@ -79,6 +79,7 @@ export default function DomainDetailPage({ params }: Props) {
               <p className="text-xs text-muted-foreground">Based on industry reports</p>
             </CardContent>
           </Card>
+
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Top Programs</CardTitle>
