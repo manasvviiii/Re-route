@@ -84,10 +84,11 @@ export function QuizForm({ formAction, formRef }: QuizFormProps) {
               </div>
             ))}
           </div>
-          <div className="flex justify-between text-xs text-muted-foreground max-w-lg mx-auto">
-             <span>Not at all</span>
-             <span>Absolute Passion</span>
-          </div>
+          <div className="flex justify-between text-sm text-muted-foreground mt-2 px-2">
+  <span className="text-xs sm:text-sm">Not at all</span>
+  <span className="text-xs sm:text-sm">Absolute Passion</span>
+</div>
+
         </RadioGroup>
         
         {/* Hidden inputs to carry over all answers on final submission */}

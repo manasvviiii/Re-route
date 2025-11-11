@@ -28,7 +28,8 @@ export async function getAptitudeAnalysis(prevState: FormState, formData: FormDa
       answers: z.array(z.coerce.number().min(1).max(7)).length(aptitudeQuestions.length, { message: 'All questions must be answered.' }),
     });
 
-    const answerValues = aptitudeQuestions.map((_, index) => formData.get(`question-${index}`) as string);
+    const answerValues = aptitudeQuestions.map((_, index) => Number(formData.get(`question-${index}`)));
+
     
     const validation = schema.safeParse({ answers: answerValues });
 

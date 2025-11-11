@@ -1,161 +1,163 @@
-
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Send, Bot, User, ChevronDown } from 'lucide-react';
 
 export default function SupportPage() {
-  const [messages, setMessages] = useState<Array<{id: number, text: string, sender: string, timestamp: Date}>>([]);
-  const [input, setInput] = useState('');
+  const [messages, setMessages] = useState<Array<{ id: number; text: string; sender: string; timestamp: Date }>>([]);
+  const [selectedQuestion, setSelectedQuestion] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const messagesEndRef = useRef<null | HTMLDivElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
-    // Set initial message only on the client to avoid hydration mismatch
     setMessages([
       {
         id: 1,
-        text: "Hello! I'm your Re-route support assistant. How can I help you today? You can ask about engineering domains, the aptitude test, or how to navigate the site.",
+        text: "👋 Hi there! I'm your Re-route Support Assistant. I can guide you around the website — just select a question from the list below.",
         sender: 'bot',
-        timestamp: new Date()
-      }
+        timestamp: new Date(),
+      },
     ]);
   }, []);
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages, isTyping]);
+  }, [messages]);
 
-  const knowledgeBase: Record<string, string[]> = {
-    greetings: ['hello', 'hi', 'hey', 'good morning', 'good afternoon'],
-    domains: ['domain', 'engineering', 'field', 'branch', 'which career'],
-    aptitudeTest: ['test', 'aptitude', 'survey', 'quiz', 'assessment', 'compatibility'],
-    resources: ['resources', 'learning', 'courses', 'upskill', 'prepare'],
-    community: ['community', 'forum', 'connect', 'discussion'],
-    technical: ['not working', 'broken', 'error', 'bug', 'issue', 'problem', 'login'],
+  // 🔗 Define your website structure
+  const siteMap: Record<string, { path: string; description: string }> = {
+    home: { path: '/', description: 'Return to the homepage and overview of Re-route.' },
+    aptitudeTest: { path: '/aptitude-test', description: 'Take the Aptitude Test to find your ideal engineering path.' },
+    domains: { path: '/domains', description: 'Explore detailed information about engineering fields.' },
+    community: { path: '/community', description: 'Join discussions and connect with other students.' },
+    empowerment: { path: '/empowerment', description: 'Read motivational stories and self-improvement tips.' },
+    resources: { path: '/resources', description: 'Find study materials and career tools.' },
+    login: { path: '/login', description: 'Sign in to access personalized features.' },
+    support: { path: '/support', description: 'This is where you chat with me for guidance!' },
   };
 
-  const getResponse = (userMessage: string): string => {
-    const msg = userMessage.toLowerCase();
+  // 🧠 Predefined list of questions
+  const questionOptions = [
+    { key: 'test', label: 'Where can I take the Aptitude Test?' },
+    { key: 'domains', label: 'What are the different engineering domains?' },
+    { key: 'community', label: 'How can I join the student community?' },
+    { key: 'empowerment', label: 'Where can I find motivation and confidence tips?' },
+    { key: 'resources', label: 'How do I access study materials and resources?' },
+    { key: 'login', label: 'How do I log in or sign up?' },
+    { key: 'home', label: 'Take me to the homepage.' },
+  ];
 
-    if (knowledgeBase.greetings.some(word => msg.includes(word))) {
-      return "Hello! I'm happy to help. What would you like to know about Re-route or engineering careers?";
-    }
+  // ✨ Helper for clickable links
+  const linkTo = (label: string, path: string) =>
+    `<a href="${path}" class="text-blue-600 underline hover:text-blue-800 transition">${label}</a>`;
 
-    if (knowledgeBase.domains.some(word => msg.includes(word))) {
-      return "The 'Domains' section has detailed guides on various engineering fields like Software, AI/ML, Mechanical, and more. It covers job outlooks, salary expectations, and required skills. You can explore it to find the best fit for you.";
+  // 🎯 Bot responses
+  const getResponse = (key: string): string => {
+    switch (key) {
+      case 'test':
+        return `You can take the Aptitude Test ${linkTo('here', siteMap.aptitudeTest.path)}. It helps you discover which engineering domain suits you best!`;
+      case 'domains':
+        return `Visit the ${linkTo('Domains section', siteMap.domains.path)} to explore fields like Software, AI, Mechanical, and more.`;
+      case 'community':
+        return `Our ${linkTo('Community forum', siteMap.community.path)} is the perfect place to connect, share, and grow with other students.`;
+      case 'empowerment':
+        return `Need motivation? Check out the ${linkTo('Empowerment hub', siteMap.empowerment.path)} for confidence-boosting stories and articles.`;
+      case 'resources':
+        return `You can access useful learning resources and career tools ${linkTo('here', siteMap.resources.path)}.`;
+      case 'login':
+        return `To log in or create an account, head to the ${linkTo('Login page', siteMap.login.path)}.`;
+      case 'home':
+        return `Sure! You can go back to the ${linkTo('Home page', siteMap.home.path)} anytime.`;
+      default:
+        return `I’m here to guide you around Re-route! Please select a question from the dropdown menu.`;
     }
-
-    if (knowledgeBase.aptitudeTest.some(word => msg.includes(word))) {
-      return "The Aptitude Test is designed to match your problem-solving style with suitable engineering domains. It's a great first step! You can find it in the 'Aptitude Test' section from the main menu.";
-    }
-    
-    if (knowledgeBase.resources.some(word => msg.includes(word))) {
-        return "We have a curated list of high-quality learning resources, including free courses from NPTEL and hands-on projects, in our 'Resources' section. It's perfect for upskilling!";
-    }
-    
-    if (knowledgeBase.community.some(word => msg.includes(word))) {
-        return "Our 'Community' forum is a place to connect with peers, ask questions, and share experiences. You need to be logged in to create posts and join the conversation.";
-    }
-
-    if (knowledgeBase.technical.some(word => msg.includes(word))) {
-      return "I'm sorry you're running into an issue. Could you describe the problem in more detail? Please mention the page you were on and what you were trying to do. This will help me assist you better.";
-    }
-
-    if (msg.includes('thank')) {
-      return "You're very welcome! Is there anything else I can help you with today?";
-    }
-
-    return "I'm sorry, I'm not sure how to answer that. My main purpose is to help you navigate Re-route. You can ask me about our features like the Empowerment Hub, Domain Navigator, or Aptitude Test.";
   };
 
-  const handleSend = () => {
-    if (!input.trim()) return;
+  // 📩 Handle user selecting a question
+  const handleAsk = () => {
+    if (!selectedQuestion) return;
+
+    const questionObj = questionOptions.find((q) => q.key === selectedQuestion);
+    if (!questionObj) return;
 
     const userMessage = {
       id: Date.now(),
-      text: input,
+      text: questionObj.label,
       sender: 'user',
-      timestamp: new Date()
+      timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
-    setInput('');
+    setMessages((prev) => [...prev, userMessage]);
     setIsTyping(true);
 
     setTimeout(() => {
       const botResponse = {
         id: Date.now() + 1,
-        text: getResponse(input),
+        text: getResponse(selectedQuestion),
         sender: 'bot',
-        timestamp: new Date()
+        timestamp: new Date(),
       };
-      setMessages(prev => [...prev, botResponse]);
+      setMessages((prev) => [...prev, botResponse]);
       setIsTyping(false);
-    }, 1000 + Math.random() * 500);
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSend();
-    }
+    }, 800);
   };
 
   return (
     <div className="flex flex-col h-[calc(100vh-80px)] bg-background">
       {/* Header */}
       <div className="bg-card shadow-sm border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center gap-3">
-            <div className="bg-gradient-to-r from-[#FFB347] to-[#FFDA63] p-2 rounded-full">
-              <Bot className="w-6 h-6 text-accent-foreground" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-foreground font-headline">Re-route Support</h1>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm text-muted-foreground">Online</span>
-              </div>
+        <div className="container mx-auto px-4 py-4 flex items-center gap-3">
+          <div className="bg-gradient-to-r from-[#FFB347] to-[#FFDA63] p-2 rounded-full">
+            <Bot className="w-6 h-6 text-accent-foreground" />
+          </div>
+          <div>
+            <h1 className="text-xl font-bold text-foreground font-headline">Re-route Support</h1>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-sm text-muted-foreground">Online</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Messages Container */}
+      {/* Messages */}
       <div className="flex-1 overflow-y-auto px-4 py-6">
         <div className="container mx-auto space-y-4">
-          {messages.map((message) => (
-            <div
-              key={message.id}
-              className={`flex gap-3 ${message.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
-            >
-              <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
-                message.sender === 'bot' 
-                  ? 'bg-gradient-to-r from-[#FFB347] to-[#FFDA63]' 
-                  : 'bg-primary'
-              }`}>
-                {message.sender === 'bot' ? (
+          {messages.map((msg) => (
+            <div key={msg.id} className={`flex gap-3 ${msg.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
+              <div
+                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
+                  msg.sender === 'bot'
+                    ? 'bg-gradient-to-r from-[#FFB347] to-[#FFDA63]'
+                    : 'bg-primary'
+                }`}
+              >
+                {msg.sender === 'bot' ? (
                   <Bot className="w-5 h-5 text-accent-foreground" />
                 ) : (
                   <User className="w-5 h-5 text-primary-foreground" />
                 )}
               </div>
-              
-              <div className={`flex flex-col max-w-md ${message.sender === 'user' ? 'items-end' : 'items-start'}`}>
-                <div className={`rounded-2xl px-4 py-3 shadow-sm ${
-                  message.sender === 'bot'
-                    ? 'bg-card text-foreground border'
-                    : 'bg-primary text-primary-foreground'
-                }`}>
-                  <p className="whitespace-pre-line">{message.text}</p>
+
+              <div className={`flex flex-col max-w-md ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}>
+                <div
+                  className={`rounded-2xl px-4 py-3 shadow-sm ${
+                    msg.sender === 'bot'
+                      ? 'bg-card text-foreground border'
+                      : 'bg-primary text-primary-foreground'
+                  }`}
+                >
+                  <p
+                    className="whitespace-pre-line"
+                    dangerouslySetInnerHTML={{ __html: msg.text }}
+                  ></p>
                 </div>
                 <span className="text-xs text-muted-foreground mt-1 px-2">
-                  {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </span>
               </div>
             </div>
@@ -169,34 +171,45 @@ export default function SupportPage() {
               <div className="bg-card rounded-2xl px-4 py-3 shadow-sm border">
                 <div className="flex gap-1.5 items-center">
                   <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"></div>
-                  <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                  <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                  <div
+                    className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"
+                    style={{ animationDelay: '0.2s' }}
+                  ></div>
+                  <div
+                    className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"
+                    style={{ animationDelay: '0.4s' }}
+                  ></div>
                 </div>
               </div>
             </div>
           )}
-          
+
           <div ref={messagesEndRef} />
         </div>
       </div>
 
-      {/* Input Area */}
+      {/* Dropdown Input */}
       <div className="bg-card border-t">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex gap-3 items-end">
-            <div className="flex-1 bg-background rounded-2xl border focus-within:border-primary focus-within:ring-2 focus-within:ring-ring transition-all">
-              <textarea
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Ask about domains, the aptitude test, or site features..."
-                className="w-full px-4 py-3 bg-transparent border-none outline-none resize-none max-h-32"
-                rows={1}
-              />
+          <div className="flex gap-3 items-center">
+            <div className="flex-1 bg-background rounded-2xl border px-4 py-3 flex items-center justify-between">
+              <select
+                value={selectedQuestion}
+                onChange={(e) => setSelectedQuestion(e.target.value)}
+                className="bg-transparent w-full outline-none cursor-pointer"
+              >
+                <option value="">Select a question...</option>
+                {questionOptions.map((q) => (
+                  <option key={q.key} value={q.key}>
+                    {q.label}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="w-5 h-5 text-muted-foreground" />
             </div>
             <button
-              onClick={handleSend}
-              disabled={!input.trim()}
+              onClick={handleAsk}
+              disabled={!selectedQuestion}
               className="bg-primary text-primary-foreground p-3 rounded-xl hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg"
             >
               <Send className="w-5 h-5" />

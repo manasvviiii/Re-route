@@ -27,7 +27,7 @@
     {
       "id": "article-1",
       "description": "Placeholder for an article about a person coding",
-      "imageUrl": "https://images.unsplash.com/photo-1624377632657-3902bfd35958?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwZXJzb24lMjBjb2Rpbmd8ZW58MHx8fHwxNzU5NTk2MzgzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://static.toiimg.com/thumb/msid-122490295,width-1280,height-720,resizemode-4/122490295.jpg",
       "imageHint": "person coding"
     },
     {
@@ -45,13 +45,13 @@
     {
       "id": "article-kangana",
       "description": "Elegant portrait of a confident Indian woman smiling",
-      "imageUrl": "https://images.unsplash.com/photo-1620058987431-772c3d52c179?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwaW5kaWFuJTIwd29tYW58ZW58MHx8fHwxNzYwMTY5OTMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://assets.telegraphindia.com/telegraph/2024/Mar/1711425606_kangana-ranaut.jpg",
       "imageHint": "elegant woman"
     },
     {
       "id": "article-ayushmann",
       "description": "Portrait of a smiling Indian man",
-      "imageUrl": "https://images.unsplash.com/photo-1610217594963-3e336d3969c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBzbWlsaW5nJTIwbWFufGVufDB8fHx8MTc2MDE4NDI4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://tse1.mm.bing.net/th/id/OIP.yM0o8Zhb1ZpxkAP-LnCerQHaFk?cb=ucfimgc2&rs=1&pid=ImgDetMain&o=7&rm=3",
       "imageHint": "man portrait"
     },
     {
