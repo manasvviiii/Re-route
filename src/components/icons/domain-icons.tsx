@@ -1,36 +1,39 @@
 'use client';
 
 import {
-  BrainCircuit,
-  Database,
-  CircuitBoard,
-  Cog,
   Code,
   FlaskConical,
-  IconProps,
   Landmark,
   Rocket
 } from 'lucide-react';
 
-type DomainIconProps = {
-  name: string;
-} & IconProps;
+import type { LucideProps as IconProps } from 'lucide-react';
 
-const iconMap: { [key: string]: React.FC<IconProps> } = {
-  DataScience: Database,
-  AIML: BrainCircuit,
-  Electrical: CircuitBoard,
-  Mechanical: Cog,
-  Software: Code,
-  Biotech: FlaskConical,
-  Civil: Landmark,
-  Aeronautical: Rocket,
-};
+type DomainIconName =
+  | 'Software'
+  | 'DataScience'
+  | 'AIML'
+  | 'Mechanical'
+  | 'Electrical'
+  | 'Civil'
+  | 'Biotech'
+  | 'Aeronautical';
 
-export const DomainIcon = ({ name, ...props }: DomainIconProps) => {
-  const IconComponent = iconMap[name];
-  if (!IconComponent) {
-    return <Code {...props} />; // fallback icon
+export function DomainIcon({ name, ...props }: { name: DomainIconName } & IconProps) {
+  switch (name) {
+    case 'Software':
+      return <Code {...props} />;
+    case 'DataScience':
+      return <FlaskConical {...props} />;
+    case 'AIML':
+      return <Rocket {...props} />;
+    case 'Mechanical':
+    case 'Electrical':
+    case 'Civil':
+    case 'Biotech':
+    case 'Aeronautical':
+      return <Landmark {...props} />;
+    default:
+      return <Code {...props} />;
   }
-  return <IconComponent {...props} />;
-};
+}

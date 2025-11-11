@@ -26,7 +26,7 @@ export default function DomainsPage() {
                 <Card className="h-full transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1 group-hover:border-primary">
                   <CardContent className="p-6 flex flex-col items-start h-full">
                     <div className="p-4 rounded-full bg-primary/10 text-primary mb-4 transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                      <DomainIcon name={domain.icon} className="h-8 w-8" />
+                      <DomainIcon name={domain.icon as any} className="h-10 w-10" />
                     </div>
                     <h3 className="text-xl font-bold mb-2 font-headline">{domain.name}</h3>
                     <p className="text-muted-foreground text-sm flex-grow mb-4">
